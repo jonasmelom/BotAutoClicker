@@ -17,8 +17,8 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Configurar Gradle Wrapper
-      run: gradle wrapper
+    - name: Conceder permissão de execução ao gradlew
+      run: chmod +x gradlew
 
     - name: Gerar APK
       run: ./gradlew assembleDebug
