@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#C8000000"
+    android:orientation="horizontal"
+    android:padding="6dp">
+
+    <Button
+        android:id="@+id/btnPlay"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#4CAF50"
+        android:text="▶ PLAY"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp" />
+
+    <Button
+        android:id="@+id/btnPause"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="6dp"
+        android:backgroundTint="#FF9800"
+        android:text="⏸ PAUSE"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp" />
+</LinearLayout>
