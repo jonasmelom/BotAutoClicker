@@ -17,6 +17,10 @@ android {
 
 dependencies {
     // Adicione a dependência do OpenCV aqui dentro:
+   dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.github.quickbirdstudios:opencv-android:4.5.3.0'
     implementation 'com.github.quickbirdstudios:opencv-android:4.5.3.0'
 
     // Mantinha as outras dependências existentes do seu app (appcompat, material, etc.)
