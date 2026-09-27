@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'org.jetbrains.kotlin.android' // Necessário se você estiver usando Kotlin no projeto
 }
 
 android {
@@ -12,7 +13,9 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-    } // <- Verifique se todas as chaves do bloco android foram fechadas!
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
 
     buildTypes {
         release {
@@ -20,10 +23,28 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-} // <- Certifique-se de que o bloco android fecha aqui antes do dependencies
+
+    // Configurações de compatibilidade para Java 8+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // Configuração para Kotlin (caso utilize arquivos .kt)
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
 
 dependencies {
+    // Dependências de Suporte e UI Básicas
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    // ...
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // Dependências para Testes
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
