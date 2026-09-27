@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permissão para desenhar overlays/widgets flutuantes -->
+    <!-- Permissão para Janela Flutuante (Overlay) -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     
-    <!-- Permissão base para Foreground Service -->
+    <!-- Permissão base de Serviço em Primeiro Plano -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     
-    <!-- Obrigatório para Android 14+ (SDK 34): especifica o tipo exato do Foreground Service -->
+    <!-- Requisito para Android 14+ (SDK 34) quando usando Foreground Service -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <application
@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <!-- Activity Principal (Tela de Início) -->
+        <!-- Activity Principal -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
 
-        <!-- Serviço de Acessibilidade (Usado para os cliques automáticos) -->
+        <!-- Serviço de Acessibilidade (Execução dos cliques automáticos) -->
         <service
             android:name=".BotAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
@@ -36,14 +36,12 @@
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
 
-            <!-- Corrigido o atributo 'android:name' para o valor padrão do Android -->
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_service_config" />
         </service>
 
-        <!-- Serviço do Widget Flutuante -->
-        <!-- Adicionado 'foregroundServiceType' obrigatório no Android 14+ se usar startForeground() -->
+        <!-- Serviço do Overlay / Widget Flutuante -->
         <service
             android:name=".FloatingWidgetService"
             android:enabled="true"
