@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permissão para Janela Flutuante (Overlay) -->
+    <!-- Permissões devem ficar fora de <application> -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    
-    <!-- Permissão base de Serviço em Primeiro Plano -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    
-    <!-- Requisito para Android 14+ (SDK 34) quando usando Foreground Service -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
+    <!-- O android:icon deve ficar DENTRO da tag <application> -->
     <application
         android:allowBackup="true"
         android:icon="@android:drawable/ic_menu_compass"
         android:label="Bot AutoClicker"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        
-        <!-- Activity Principal -->
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -27,7 +23,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Serviço de Acessibilidade (Execução dos cliques automáticos) -->
         <service
             android:name=".BotAccessibilityService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
@@ -41,7 +36,6 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
 
-        <!-- Serviço do Overlay / Widget Flutuante -->
         <service
             android:name=".FloatingWidgetService"
             android:enabled="true"
