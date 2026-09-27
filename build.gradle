@@ -4,8 +4,12 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.1'
-    }
+    // Opção usando a versão oficial mais recente publicada no Maven Central
+    implementation 'org.opencv:opencv:4.9.0'
+
+    // OU se estiver usando o com.github.quickbirdstudios / jitpack:
+    // implementation 'com.github.quickbirdstudios:opencv-android:4.5.3.0'
+}
 }
 
 allprojects {
